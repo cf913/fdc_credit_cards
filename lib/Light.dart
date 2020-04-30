@@ -226,7 +226,7 @@ class _LightState extends State<Light> {
                 ),
               ),
               Positioned(
-                bottom: -164,
+                bottom: 153, // for LG v30+ make this -164,
                 right: 0,
                 left: 0,
                 child: Transform.translate(

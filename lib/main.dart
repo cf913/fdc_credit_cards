@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'CreditCard.dart';
-import 'Dark.dart';
 import 'Light.dart';
-import 'TransactionHeader.dart';
 
 void main() {
   runApp(MyApp());
@@ -66,7 +63,6 @@ class _MyHomePageState extends State<MyHomePage>
     double width = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
     var maxSlide = h * 0.83;
-    var bgColor = dark ? Color(0xff354D57) : Color(0xffDCDFE0);
 
     var animation = ColorTween(
       begin: dark ? Color(0xff354D57) : Color(0xffDCDFE0),
@@ -75,9 +71,6 @@ class _MyHomePageState extends State<MyHomePage>
       parent: animationController,
       curve: Curves.easeOutQuint,
     ));
-    // ..addListener(() {
-    //   setState(() {});
-    // });
 
     return Scaffold(
       body: AnimatedBuilder(
@@ -107,23 +100,6 @@ class _MyHomePageState extends State<MyHomePage>
                             h: h,
                             w: width,
                             onTap: _toggle),
-                        // Positioned(
-                        //   bottom: -150,
-                        //   right: 0,
-                        //   left: 0,
-                        //   child: Padding(
-                        //     padding: EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 0),
-                        //     child: Transform.translate(
-                        //       offset: Offset(0.0, 0.0),
-                        //       child: GestureDetector(
-                        //         onTap: _toggleTheme,
-                        //         child: CreditCard(
-                        //           dark: !dark,
-                        //         ),
-                        //       ),
-                        //     ),
-                        //   ),
-                        // )
                       ]
                     : <Widget>[
                         Light(
@@ -142,23 +118,6 @@ class _MyHomePageState extends State<MyHomePage>
                             h: h,
                             w: width,
                             onTap: _toggle),
-                        // Positioned(
-                        //   bottom: -150,
-                        //   right: 0,
-                        //   left: 0,
-                        //   child: Padding(
-                        //     padding: EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 0),
-                        //     child: Transform.translate(
-                        //       offset: Offset(0.0, 0.0),
-                        //       child: GestureDetector(
-                        //         onTap: _toggleTheme,
-                        //         child: CreditCard(
-                        //           dark: !dark,
-                        //         ),
-                        //       ),
-                        //     ),
-                        //   ),
-                        // )
                       ],
               ),
             );
@@ -169,47 +128,5 @@ class _MyHomePageState extends State<MyHomePage>
       //   child: Icon(Icons.add),
       // ), //
     );
-  }
-}
-
-class SmallText extends StatelessWidget {
-  final Color color;
-  final String text;
-
-  const SmallText({Key key, this.color, this.text}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(text,
-        style:
-            TextStyle(color: color, fontSize: 12, fontWeight: FontWeight.w600));
-  }
-}
-
-class BigText extends StatelessWidget {
-  final Color color;
-  final String text;
-
-  const BigText({Key key, this.color, this.text}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(text,
-        style:
-            TextStyle(color: color, fontSize: 16, fontWeight: FontWeight.w600));
-  }
-}
-
-class AmountText extends StatelessWidget {
-  final Color color;
-  final String text;
-
-  const AmountText({Key key, this.color, this.text}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(text,
-        style:
-            TextStyle(color: color, fontSize: 19, fontWeight: FontWeight.w500));
   }
 }
